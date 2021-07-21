@@ -14,8 +14,6 @@ alias which='type -a'
 
 alias vi='nvim'
 
-# Opens current dir in finder
-alias odir='open -a Finder ./'
 # Clear screen
 alias c='clear'
 
@@ -99,8 +97,14 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias path='echo -e ${PATH//:/\\n}'
 
 # Copy to clipboard
-alias copy='tr -d '\n' | pbcopy'
-# alias copy='tr -d '\n' | xclip -sel clip' # linux version
+# Open pwd in file explorer
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias copy='tr -d '\n' | xclip -sel clip'
+  alias odir='xdg-open .'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  alias copy='tr -d '\n' | pbcopy'
+  alias odir='open -a Finder ./'
+fi
 
 # Reload this thing
 alias sourcez='source ~/.zshrc'
