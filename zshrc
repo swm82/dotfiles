@@ -28,11 +28,12 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 # for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-#for file in ~/.{aliases}; do
-	#[ -r "$file" ] && [ -f "$file" ] && source "$file";
+#for file in ~/dotfiles/.{aliases,functions}; do
+#	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 #done;
 #unset file;
-source ~/.aliases
+source ~/dotfiles/.aliases
+source ~/dotfiles/.functions
 
 # ## BROKEN
 # Case-insensitive globbing (used in pathname expansion)
@@ -46,62 +47,5 @@ source ~/.aliases
 
 export EDITOR='nvim'
 
-#===============================#
-#	Functions		            #
-#===============================#
-
-# ex - archive extractor
-# usage: ex <file>
-extract ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-# Create and go to the directory
-mcd ()
-{
-	mkdir -p $1
-	cd $1
-}
-
-# Change directory to arg of last command (prob ls)
-cdla () {
-    cd "$_"
-}
-
-catla () {
-    cat "$_"
-}
-
-# Convert .heic images to jpg
-heic () {
-    sips -s format jpeg $1 --out $2
-}
-
-# Convert all .heic files in directory to jpg and remove original
-heicd() {
-    for i in *.heic(:r) ; sips -s format jpeg "$i.heic" --out "$i.jpg" && rm "$1.heic"
-}
-
-# Shortcut to iCloud dir
-icloud () {
-    cd ~/icloud/$1
-}
-
+# Needed for fasd
+eval "$(fasd --init auto)"
