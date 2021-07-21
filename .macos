@@ -1,0 +1,12 @@
+# Remove the auto-hiding Dock delay
+ defaults write com.apple.dock autohide-delay -float 0
+
+ # Set highlight color
+ defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"\n
+
+ # Improve sound quality of bluetooth audio devices
+ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+ # Really really fast key repeats... aaaaaaaaaaaaaaaaaaaaaaaah
+ defaults write NSGlobalDomain KeyRepeat -int 1
+ defaults write NSGlobalDomain InitialKeyRepeat -int 10
