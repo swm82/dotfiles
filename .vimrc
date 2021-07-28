@@ -1,10 +1,44 @@
 " Use the Solarized Dark theme
 set background=dark
-"colorscheme solarized
+colorscheme elflord
 "let g:solarized_termtrans=1
 
-" Make Vim more useful
+" Turn off the thing that turns off the cool parts of vim - make vim useful again
 set nocompatible
+
+" SEARCH
+" ------
+" Highlight search results while searching
+set hlsearch
+" Ignore case of searches
+set ignorecase
+" Highlight dynamically as pattern is typed (don't wait for enter)
+set incsearch
+" Use smartcase (if all lower case search qury, then insens. if one or more cap, case sens.
+"set smartcase
+
+" TABS
+" ----
+" Expand tabs to spaces
+set expandtab
+" Make tabs as wide as two spaces
+set tabstop=4
+" Number of space chars inserted for indentation (prob when calling :retab to convert indent to tab)
+set shiftwidth=4
+" Automatically indent line the same as prev
+set autoindent
+
+" LINE NUMBERING
+" Enable line numbers
+set number
+" Use relative line numbers
+if exists("&relativenumber")
+	set relativenumber
+	au BufReadPost * set relativenumber
+endif
+
+
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -23,14 +57,14 @@ set encoding=utf-8 nobomb
 set binary
 set noeol
 " Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
+" set backupdir=~/.vim/backups
+" set directory=~/.vim/swaps
+" if exists("&undodir")
+" 	set undodir=~/.vim/undo
+" endif
 
 " Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
+" set backupskip=/tmp/*,/private/tmp/*
 
 " Respect modeline in files
 set modeline
@@ -38,21 +72,11 @@ set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable line numbers
-set number
 " Enable syntax highlighting
 syntax on
-" Make tabs as wide as two spaces
-set tabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
@@ -71,11 +95,6 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
