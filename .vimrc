@@ -29,6 +29,7 @@ set shiftwidth=4
 set autoindent
 
 " LINE NUMBERING
+" --------------
 " Enable line numbers
 set number
 " Use relative line numbers
@@ -37,6 +38,13 @@ if exists("&relativenumber")
 	au BufReadPost * set relativenumber
 endif
 
+
+" OTHER
+" -----
+" Set window title (%t is the original filename)
+set titlestring=%t
+" Have vim confirm if you :q or :e on an unsaved modified file
+set confirm
 
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
