@@ -1,12 +1,29 @@
+# Mac settings commands
+# defaults read/write tons of preferences
+#   - domains lists all domains
+#   - how to see which domain is responsible for a setting:
+#       - read, redirect output to file before and after, and do a diff on the files
+#           -  checkout vscode's diff: code --diff
+#       - deleting a key resets it to default before change
+# caffeinate : stay awake -d = display (sudo)
+# systemsetup : powwer and stuff (sudo)
+# top : system stats - memory, cpu, processes etc.
+# opendiff : launches a file comparison GUI
+# textutil : dope tool for text file manip (.txt, rtf, html, docx, etc).. info, convert, concat etc.
+# units : unit conversion.. handy
+
 # Remove the auto-hiding Dock delay
- defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-delay -float 0
 
- # Set highlight color
- defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"\n
+# Set highlight color
+defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"\n
 
- # Improve sound quality of bluetooth audio devices
- defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# Improve sound quality of bluetooth audio devices
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
- # Really really fast key repeats... aaaaaaaaaaaaaaaaaaaaaaaah
- defaults write NSGlobalDomain KeyRepeat -int 1
- defaults write NSGlobalDomain InitialKeyRepeat -int 10
+# Really really fast key repeats... aaaaaaaaaaaaaaaaaaaaaaaah
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Login screen message
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Hello world"
