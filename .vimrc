@@ -8,6 +8,8 @@ let g:airline_theme='powerlineish'
 
 " Turn off the thing that turns off the cool parts of vim - make vim useful again
 set nocompatible
+" Don’t show the intro message when starting Vim
+set shortmess=atI
 
 " SEARCH
 " ------
@@ -56,16 +58,56 @@ set hidden
 
 " OTHER
 " -----
+" Enable syntax highlighting
+syntax on
+" Show the filename in the window titlebar
+set title
 " Set window title (%t is the original filename)
 set titlestring=%t
 " Have vim confirm if you :q or :e on an unsaved modified file
 set confirm
 " Use the dreaded mouse
-set mouse+=a
+set mouse=a
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamedplus
+" Allow cursor keys in insert mode
+set esckeys
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+" Always show status line
+set laststatus=2
+" Disable error bells
+set noerrorbells
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+" Show the cursor position
+set ruler
+" Show the current mode
+set showmode
+" Show the (partial) command as it’s being typed
+set showcmd
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+" Tell the bell to stfu
+set noerrorbells visualbell t_vb=
 
-" Determine filetype if possible, use it to allow intelligent auto-indenting and for plugins
-if has('filetype')
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
 	filetype indent plugin on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
 
@@ -81,50 +123,58 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-syntastic/syntastic'
+	Plug 'preservim/nerdcommenter'
 call plug#end()
 
-" SYNTASTIC RECOMMENDED SETTINGS
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" PLUGIN SETTINGS/CONFIG
+" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+" NERDcommenter
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
 
 " MAPPINGS
 " --------
+let mapleader=" "
 " Unbind stuff
 nmap Q <Nop>
 map <C-a> <Nop>
 map <C-x> <Nop>
 " Toggle NERDTree
 map <F5> :NERDTreeToggle<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Resize split windows using arrow keys by pressing:
+" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+noremap <c-up> <c-w>+
+noremap <c-down> <c-w>-
+noremap <c-left> <c-w>>
+noremap <c-right> <c-w><
 
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
+" Yank from cursor to the end of line.
+nnoremap Y y$
+" F6 to run current file as python script
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+
 " Centralize backups, swapfiles and undo history
 " set backupdir=~/.vim/backups
 " set directory=~/.vim/swaps
@@ -141,31 +191,9 @@ set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable syntax highlighting
-syntax on
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -178,13 +206,3 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-" Automatic commands
-"if has("autocmd")
-"	" Enable file type detection
-"	filetype on
-"	" Treat .json files as .js
-"	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-"	" Treat .md files as Markdown
-"	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-"endif

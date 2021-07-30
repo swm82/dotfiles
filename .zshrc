@@ -42,4 +42,6 @@ autoload -U compinit && compinit -u
 # vim keybindings
 bindkey -v
 
-bindkey '^R' history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
+
+. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux

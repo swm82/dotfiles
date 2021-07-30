@@ -108,3 +108,5 @@ fi
 
 # Reload this thing
 alias sourcez='source ~/.zshrc'
+
+alias qt5='/home/seth/Qt5.12.11/Tools/QtCreator/bin/qtcreator'
