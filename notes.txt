@@ -13,3 +13,13 @@ Script:
 - global gitignore
 	- set: git config --global core.excludesfile ~/.gitignore on mac
 	- find a template somewhere
+- enforce SSH on git:
+	But here is what you can directly add in your .gitconfig:
+	# Enforce SSH
+	[url "ssh://git@github.com/"]
+	  insteadOf = https://github.com/
+	[url "ssh://git@gitlab.com/"]
+	  insteadOf = https://gitlab.com/
+	[url "ssh://git@bitbucket.org/"]
+	  insteadOf = https://bitbucket.org/
+
