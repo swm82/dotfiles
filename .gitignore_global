@@ -1,0 +1,64 @@
+*.swp
+
+# Compiled source #
+###################
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Editing tools and IDEs #
+##########################
+[._]*.sw[a-p]
+[._]*.s[a-v][a-z]
+*~
+~*
+\#*\#
+\.#*
+.ipynb_checkpoints/
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+### 
+ANOTHER
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+
+# Compiled C++ files
+*.out
+
+# Application specific files
+venv
+node_modules
+.sass-cache
+
+# RSA keys, just in case
+*rsa*

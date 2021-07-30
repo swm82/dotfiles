@@ -1,5 +1,5 @@
 # Oh my zsh
-export ZSH="/Users/seth/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
@@ -24,23 +24,24 @@ fi
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 # for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-for file in ~/dotfiles/.{aliases,functions}; do
+for file in ~/dotfiles/.{aliases,functions,path}; do
     source "$file";
 done;
 
 unset file;
-#source ~/dotfiles/.aliases
-#source ~/dotfiles/.functions
+
 export EDITOR='nvim'
 
 # Needed for fasd
 eval "$(fasd --init auto)"
 
 # autojump
-[[ -s /Users/seth/.autojump/etc/profile.d/autojump.sh ]] && source /Users/seth/.autojump/etc/profile.d/autojump.sh
+[[ -s "$HOME/.autojump/etc/profile.d/autojump.sh" ]] && source "$HOME/.autojump/etc/profile.d/autojump.sh"
 autoload -U compinit && compinit -u
 
 # vim keybindings
 bindkey -v
 
-bindkey '^R' history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
+
+. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux

@@ -1,0 +1,1 @@
+export PATH="${PATH}:.:~/scripts:${HOME}/.local/bin:/home/seth/.cargo/bin/navi"
