@@ -44,4 +44,4 @@ bindkey -v
 
 bindkey "^R" history-incremental-search-backward
 
-. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux
+#. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux
