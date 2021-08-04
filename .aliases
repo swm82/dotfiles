@@ -109,4 +109,11 @@ fi
 # Reload this thing
 alias sourcez='source ~/.zshrc'
 
+# MAC - list all defaults (settings) domains
+alias domains="defaults domains | tr ',' '\n'"
+
+# Show battery status
+alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
+
+# For work
 alias qt5='/home/seth/Qt5.12.11/Tools/QtCreator/bin/qtcreator'
