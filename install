@@ -1,0 +1,47 @@
+# Packages
+# sudo apt -y update, upgrade, build-essential
+# sudo apt-get -y autoremove autoclean
+# sudo apt-get install -y build-essential checkinstall
+#
+# Development packages
+# sudo apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+# sudo apt install libz-dev -y libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc
+# Ryans list:
+# sudo apt install -y x11-apps  mesa-utils  pulseaudio  gawk  wget  git-core  diffstat  unzip  texinfo  gcc-multilib  gdb-multiarch  build-essential  chrpath  socat  zsh  cpio  python  python3  python3-pip  python3-pexpect  xz-utils  debianutils  iputils-ping  libnss-mdns  libx11-xcb-dev  libglu1-mesa-dev  libxcomposite-dev  libxkbcommon-x11-0  libwayland-cursor0  libxcb-icccm4  libxcb-image0  libxcb-keysyms1  libxcb-render-util0  libxcb-xinerama0  libssl-dev  libusb-1.0-0-dev  libxi-dev  libgtk2.0-0  silversearcher-ag  avahi-utils
+#
+# Other packages: (TODO)
+# navi, cheat.sh
+
+
+# set zsh chsh
+# make dirs (for plugs and stuff.. make files for zsh)
+#
+#
+
+# TLDR
+cd /tmp
+curl -OL https://github.com/isacikgoz/tldr/releases/download/v0.5.0/tldr_0.5.0_linux_amd64.tar.gz
+tar xzf tldr_0.5.0_linux_amd64.tar.gz
+chmod +x tldr
+sudo mv tldr ~/.local/bin
+rm -f tldr_0.5.0_linux_amd64.tar.gz
+cd -
+
+# Nerd fonts
+# Install Meslo fonts
+# use curl -OL - L follows redirect
+
+# Plugins/themes
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
+git clone https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
+git clone git@github.com:supercrabtree/k.git ~/.zsh/k && mv ~/.zsh/k/k.sh ~/.zsh/k/k.zsh
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
+mv ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
+git clone https://github.com/jeffreytse/zsh-vi-mode.git ~/.zsh/zsh-vi-mode
+
+
+# Fuzzy finder
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install

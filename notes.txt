@@ -1,20 +1,7 @@
-Script:
-- install zsh
-- install OMZ?
-- install zsh plugins
-- install other useful stuff (i.e. fzf, autojump, fd, fasd, etc.)
-- install neovim?
-- add plugin mgr
-- add vim plugins
-	- call :PlugInstall
-	- See .vimrc for plugs - see below for other dependencies
-	- airline, powerline fonts (for shnazzy icons), enable in airline ( let g:airline_powerline_fonts=1 )
-	- syntastic - settings
 - global gitignore
-	- set: git config --global core.excludesfile ~/.gitignore on mac
-	- find a template somewhere
+	git config --global core.excludesfile ~/dotfiles/.gitignore on mac
 - enforce SSH on git:
-	But here is what you can directly add in your .gitconfig:
+	Add to git .gitconfig:
 	# Enforce SSH
 	[url "ssh://git@github.com/"]
 	  insteadOf = https://github.com/

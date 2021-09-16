@@ -1,0 +1,1 @@
+setopt HIST_SAVE_NO_DUPS # Don't write duplicate events to history file

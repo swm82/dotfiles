@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 # Aliases
-alias python=/usr/local/bin/python3
+alias python=/usr/bin/python3.9
 
 # Prevent fuck ups
 alias rm='rm -iv'
@@ -27,17 +27,31 @@ alias .....='cd ../../../..'
 # cd into the old dir
 alias bd='cd "$OLDPWD"'
 
-# vim keybindings
-bindkey -v
-
 # Git
+alias g="git"
 alias gll="git log --all --graph --decorate"
+alias gs='git status'
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gtd='git tag --delete'
+alias gtdr='git tag --delete origin'
+alias gr='git branch -r'
+alias gplo='git pull origin'
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gl='git log'
+alias gr='git remote'
+alias grs='git remote show'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
 
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
-alias g="git"
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -116,4 +130,4 @@ alias domains="defaults domains | tr ',' '\n'"
 alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
 
 # For work
-alias qt5='/home/seth/Qt5.12.11/Tools/QtCreator/bin/qtcreator'
+alias qt5='~/Qt/Tools/QtCreator/bin/qtcreator'
