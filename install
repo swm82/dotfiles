@@ -9,6 +9,13 @@
 # Ryans list:
 # sudo apt install -y x11-apps  mesa-utils  pulseaudio  gawk  wget  git-core  diffstat  unzip  texinfo  gcc-multilib  gdb-multiarch  build-essential  chrpath  socat  zsh  cpio  python  python3  python3-pip  python3-pexpect  xz-utils  debianutils  iputils-ping  libnss-mdns  libx11-xcb-dev  libglu1-mesa-dev  libxcomposite-dev  libxkbcommon-x11-0  libwayland-cursor0  libxcb-icccm4  libxcb-image0  libxcb-keysyms1  libxcb-render-util0  libxcb-xinerama0  libssl-dev  libusb-1.0-0-dev  libxi-dev  libgtk2.0-0  silversearcher-ag  avahi-utils
 #
+#
+# Install neovim
+
+####################
+##### TERMINAL #####
+####################
+
 # Other packages: (TODO)
 # navi, cheat.sh
 

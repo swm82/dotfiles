@@ -1,0 +1,11 @@
+vpn() {
+	if [ -z "$1" ]; then
+		echo "Useage: vpn [on|off]"
+	elif [[ "$1" == 'on' ]] ; then
+		globalprotect connect --portal access.us.anritsu.com
+	elif [[ "$1" == 'off' ]]; then
+		globalprotect disconnect --portal access.us.anritsu.com
+	else
+		echo "Useage: vpn [on|off]"
+	fi
+}

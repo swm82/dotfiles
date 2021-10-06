@@ -6,8 +6,6 @@ colorscheme elflord
 let g:airline_powerline_fonts=1
 let g:airline_theme='powerlineish'
 
-" Turn off the thing that turns off the cool parts of vim - make vim useful again
-set nocompatible
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 
@@ -22,14 +20,13 @@ set incsearch
 " Use smartcase (if all lower case search qury, then insens. if one or more cap, case sens.
 set smartcase
 
-" TABS
+" TABS (All tabs will be 4 spaces
 " ----
-" Expand tabs to spaces
-set expandtab
-" Make tabs as wide as two spaces
-set tabstop=4
+set softtabstop=4
 " Number of space chars inserted for indentation (prob when calling :retab to convert indent to tab)
 set shiftwidth=4
+" Expand tabs to spaces
+set expandtab
 " Automatically indent line the same as prev
 set autoindent
 
@@ -89,7 +86,7 @@ set laststatus=2
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
-" Show the cursor position
+" Show the cursor position - line number on bottom right
 set ruler
 " Show the current mode
 set showmode

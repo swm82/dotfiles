@@ -32,9 +32,9 @@ autoload -U zmv # File renaming program (i.e. zmv '* *' '$f:gs/ /_' == replace a
 
 
 ## Load the shell dotfiles, and then some:
-## * ~/.path can be used to extend `$PATH`.
-## * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/dotfiles/.{aliases,functions,path,zshoptions}; do
+## * ~/.envs = env vars including PATH
+## * ~/.extra = stuff not to commit
+for file in ~/dotfiles/.{aliases,functions,envs,zshoptions,extra}; do
     [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -53,7 +53,7 @@ plugins=(
 	'fzf'
 	'zsh-autocomplete'
 	'k'
-	'zsh-vi-mode'
+	#'zsh-vi-mode'
 	)
 for plugin in "${plugins[@]}"; do
 	[ -f ~/.zsh/${plugin}/${plugin}.zsh ] && source ~/.zsh/${plugin}/${plugin}.zsh
