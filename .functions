@@ -64,6 +64,11 @@ icloud () {
     cd "~/icloud/$1"
 }
 
+# cheat.sh - tldr @ commandline
+cheat() {
+   curl cheat.sh/"$1"
+}
+
 # Don't add this stuff to history
 zshaddhistory() {
     local line=${1%%$'\n'}

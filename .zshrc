@@ -17,14 +17,16 @@ export KEYTIMEOUT=1 # make vim mode switches faster
 bindkey "^R" history-incremental-search-backward
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Options
 # setopt autocd # Type name of dir to cd into it - doesn't work great with completions
 # History
-setopt append_history share_history histignorealldups sharehistory # Ignore duplicates, share btw sessions
+setopt append_history share_history sharehistory # Ignore duplicates, share btw sessions
+# Other maybe useful options that I wasn't sold on:
+# histignorealldups
 
 # Completion/history
 autoload -Uz compinit && compinit -u
@@ -51,7 +53,7 @@ plugins=(
 	'zsh-syntax-highlighting'
 	'zsh-history-substring-search'
 	'fzf'
-	'zsh-autocomplete'
+	#'zsh-autocomplete' - this makes things get kinda weird with history search
 	'k'
 	#'zsh-vi-mode'
 	)
