@@ -131,3 +131,6 @@ alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
 
 # For work
 alias qt5='~/Qt/Tools/QtCreator/bin/qtcreator'
+# Work stuff
+alias poky='source /opt/poky-anritsu/2.6.1/environment-setup-aarch64-poky-linux' # Everest ARM toolchain
+

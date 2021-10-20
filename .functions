@@ -69,6 +69,15 @@ cheat() {
    curl cheat.sh/"$1"
 }
 
+# Git
+########
+# Keep repo up to date
+# Useage: gmv 1 develop - rebases on the last commit.
+# Use git commit --ammend to maintain one commit.. cleannn
+gmv () {
+    git rebase --onto $2 HEAD~$1
+}
+
 # Don't add this stuff to history
 zshaddhistory() {
     local line=${1%%$'\n'}
