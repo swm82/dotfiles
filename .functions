@@ -61,7 +61,12 @@ heicd() {
 
 # Shortcut to iCloud dir
 icloud () {
-    cd "~/icloud/$1"
+    if [ -z "$1" ]
+    then
+        cd ~/icloud
+    else
+        cd ~/icloud/"${1}"
+    fi
 }
 
 # cheat.sh - tldr @ commandline

@@ -131,6 +131,8 @@ alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
 
 # For work
 alias qt5='~/Qt/Tools/QtCreator/bin/qtcreator'
+# alias qt5='/home/seth/Qt5.12.11/Tools/QtCreator/bin/qtcreator'
 # Work stuff
 alias poky='source /opt/poky-anritsu/2.6.1/environment-setup-aarch64-poky-linux' # Everest ARM toolchain
 
+alias school='cd ~/icloud/School/2022Spring'

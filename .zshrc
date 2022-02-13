@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # Info
 # .zshenv - Should only contain user’s environment variables.
@@ -25,8 +25,7 @@ HISTFILE=~/.zsh_history
 # setopt autocd # Type name of dir to cd into it - doesn't work great with completions
 # History
 setopt append_history share_history sharehistory # Ignore duplicates, share btw sessions
-# Other maybe useful options that I wasn't sold on:
-# histignorealldups
+setopt AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
 
 # Completion/history
 autoload -Uz compinit && compinit -u
@@ -96,3 +95,8 @@ zstyle ':completion:*:*:ssnorm*:*' file-patterns '*.tsv'
 # Work stuff
 #. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux # Everest ARM toolchain
 
+# opam configuration
+[[ ! -r /Users/seth/.opam/opam-init/init.zsh ]] || source /Users/seth/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
