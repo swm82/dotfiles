@@ -1,11 +1,3 @@
-" Use the Solarized Dark theme
-set background=dark
-colorscheme elflord
-"let g:solarized_termtrans=1
-" Enable powerline fonts in airline
-let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
-
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 
@@ -67,8 +59,8 @@ set confirm
 set mouse=a
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamedplus
-" Allow cursor keys in insert mode
-set esckeys
+" Allow cursor keys in insert mode (vim only?)
+" set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
@@ -111,8 +103,7 @@ endif
 " PLUGINS
 " -------
 call plug#begin('~/.vim/plugged')
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+	Plug 'itchyny/lightline.vim'
 	Plug 'preservim/nerdtree'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -121,7 +112,16 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'vim-syntastic/syntastic'
 	Plug 'preservim/nerdcommenter'
+	Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
+
+" Theme
+colorscheme dracula
+" Status bar theme
+let g:lightline = {
+         \ 'colorscheme': 'dracula',
+         \ }
+
 
 " PLUGIN SETTINGS/CONFIG
 " syntastic
@@ -185,9 +185,11 @@ nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 " Respect modeline in files
 set modeline
 set modelines=4
+"
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
+
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -209,3 +211,5 @@ autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%,
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+set noshowmode " it's already in the lightline bar
