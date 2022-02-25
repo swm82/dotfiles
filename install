@@ -45,9 +45,9 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-h
 git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
 git clone https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
 git clone git@github.com:supercrabtree/k.git ~/.zsh/k && mv ~/.zsh/k/k.sh ~/.zsh/k/k.zsh
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
-mv ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
-git clone https://github.com/jeffreytse/zsh-vi-mode.git ~/.zsh/zsh-vi-mode
+# git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
+# mv ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh ~/.zsh/zsh-autocomplete/zsh-autocomplete.zsh
+# git clone https://github.com/jeffreytse/zsh-vi-mode.git ~/.zsh/zsh-vi-mode
 
 
 # Fuzzy finder

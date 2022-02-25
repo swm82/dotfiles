@@ -170,7 +170,7 @@ noremap <c-right> <c-w><
 " Yank from cursor to the end of line.
 nnoremap Y y$
 " F6 to run current file as python script
-nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+" nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 
 " Centralize backups, swapfiles and undo history
 " set backupdir=~/.vim/backups
