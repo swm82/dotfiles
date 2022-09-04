@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 # Aliases
-alias python=/usr/bin/python3.9
+alias python=python3.9
 
 # Prevent fuck ups
 alias rm='rm -iv'
@@ -65,7 +65,7 @@ fi
 alias ls="ls ${colorflag}"
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
-alias ll="ls -lAhFGH ${colorflag}"
+alias ll="ls -lAhFGHtr ${colorflag}"
 alias la="ls -A ${colorflag}"
 # List all files colorized in long format, excluding . and ..
 alias lal="ls -lAF ${colorflag}"
@@ -128,11 +128,5 @@ alias domains="defaults domains | tr ',' '\n'"
 
 # Show battery status
 alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
-
-# For work
-alias qt5='~/Qt/Tools/QtCreator/bin/qtcreator'
-# alias qt5='/home/seth/Qt5.12.11/Tools/QtCreator/bin/qtcreator'
-# Work stuff
-alias poky='source /opt/poky-anritsu/2.6.1/environment-setup-aarch64-poky-linux' # Everest ARM toolchain
 
 alias school='cd ~/icloud/School/2022Spring'

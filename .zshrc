@@ -97,6 +97,3 @@ zstyle ':completion:*:*:ssnorm*:*' file-patterns '*.tsv'
 
 # opam configuration
 [[ ! -r /Users/seth/.opam/opam-init/init.zsh ]] || source /Users/seth/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

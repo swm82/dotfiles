@@ -52,3 +52,9 @@ git clone git@github.com:supercrabtree/k.git ~/.zsh/k && mv ~/.zsh/k/k.sh ~/.zsh
 
 # Fuzzy finder
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+
+# Dracula theme iterm
+# copy git config
+# set osx preferences
+    # find defaults in ~/Library/Preferences in .plist files
+    # "defaults read" will print all defaults/settings

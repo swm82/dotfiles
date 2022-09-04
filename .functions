@@ -56,7 +56,7 @@ heic () {
 
 # Convert all .heic files in directory to jpg and remove original
 heicd() {
-    for i in *.heic(:r) ; sips -s format jpeg "$i.heic" --out "$i.jpg" && rm "$1.heic"
+    for i in *.HEIC(:r) ; sips -s format jpeg "$i.HEIC" --out "$i.jpg" && rm -f "$i.HEIC"
 }
 
 # Shortcut to iCloud dir
