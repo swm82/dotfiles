@@ -5,6 +5,8 @@
 #       - read, redirect output to file before and after, and do a diff on the files
 #           -  checkout vscode's diff: code --diff
 #       - deleting a key resets it to default before change
+#
+# Useful Stuff
 # caffeinate : stay awake -d = display (sudo)
 # systemsetup : powwer and stuff (sudo)
 # top : system stats - memory, cpu, processes etc.
@@ -21,9 +23,34 @@ defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.5
 # Improve sound quality of bluetooth audio devices
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Disable long press for accents
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Set highlight col
+
 # Really really fast key repeats... aaaaaaaaaaaaaaaaaaaaaaaah
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Login screen message
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Hello world"
+# sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Hello world"
+
+# take screenshots as jpg (usually smaller size) and not png
+defaults write com.apple.screencapture type jpg
+
+# do not open previous previewed files (e.g. PDFs) when opening a new one
+defaults write com.apple.Preview ApplePersistenceIgnoreState YES
+
+# show Library folder
+chflags nohidden ~/Library
+
+# show hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# killall Finder;

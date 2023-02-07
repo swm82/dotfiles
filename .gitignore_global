@@ -62,3 +62,9 @@ node_modules
 
 # RSA keys, just in case
 *rsa*
+
+# Jetbrains files
+*.iml
+*.ipr
+.idea/
+build

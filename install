@@ -1,3 +1,4 @@
+## LINUX STUFF
 # Packages
 # sudo apt -y update, upgrade, build-essential
 # sudo apt-get -y autoremove autoclean
@@ -11,6 +12,37 @@
 #
 #
 # Install neovim
+#
+# Apps to Install:
+######
+# Homebrew
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# iTerm2
+# Command to install?
+#
+#
+
+# brew install git
+# git config --global color.ui auto
+
+# install dracular for iTerm2
+# git clone https://github.com/dracula/iterm.git
+#
+# source .macos # settings
+#
+# Create SSH Keys
+# mkdir $HOME/.ssh
+# chmod 0700 $HOME/.ssh
+# ssh-keygen -t rsa -b 4096 -C "Me MyName (MyDevice) <me@mydomain.com>"
+
+# Install nvim
+brew install neovim
+export EDITOR="nvim"
+#
+#
+# Other
+# #################
+# Add Library and User folder to favorites in finder
 
 ####################
 ##### TERMINAL #####

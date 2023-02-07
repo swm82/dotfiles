@@ -16,15 +16,19 @@ bindkey -v # Vim bindings
 export KEYTIMEOUT=1 # make vim mode switches faster
 bindkey "^R" history-incremental-search-backward
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+######################### history options ############################
+setopt EXTENDED_HISTORY        # store time in history
+setopt HIST_EXPIRE_DUPS_FIRST  # unique events are more usefull to me
+setopt HIST_VERIFY             # Make those history commands nice
+setopt INC_APPEND_HISTORY      # immediatly insert history into history file
 HISTSIZE=50000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
+SAVEHIST=15000
+HISTFILE=~/.history
 
 # Options
 # setopt autocd # Type name of dir to cd into it - doesn't work great with completions
 # History
-setopt append_history share_history sharehistory # Ignore duplicates, share btw sessions
+setopt append_history share_history sharehistory histignoredups # Ignore duplicates, share btw sessions
 setopt AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
 
 # Completion/history
@@ -35,7 +39,7 @@ autoload -U zmv # File renaming program (i.e. zmv '* *' '$f:gs/ /_' == replace a
 ## Load the shell dotfiles, and then some:
 ## * ~/.envs = env vars including PATH
 ## * ~/.extra = stuff not to commit
-for file in ~/dotfiles/.{aliases,functions,envs,zshoptions,extra}; do
+for file in ~/dotfiles/.{aliases,functions,envs,zshoptions}; do
     [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -66,6 +70,8 @@ source ~/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/config/.p10k.zsh ]] || source ~/.zsh/config/.p10k.zsh
 
+# source FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Style stuff
 # Case insesitive completion
@@ -90,10 +96,3 @@ zstyle ':completion:*' group-name ''
 # Completers for my own scripts
 zstyle ':completion:*:*:sstrans*:*' file-patterns '*.(lst|clst)'
 zstyle ':completion:*:*:ssnorm*:*' file-patterns '*.tsv'
-
-
-# Work stuff
-#. /opt/poky-anritsu/everest/2.6.1/environment-setup-aarch64-poky-linux # Everest ARM toolchain
-
-# opam configuration
-[[ ! -r /Users/seth/.opam/opam-init/init.zsh ]] || source /Users/seth/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

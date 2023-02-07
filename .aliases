@@ -65,14 +65,17 @@ fi
 alias ls="ls ${colorflag}"
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
-alias ll="ls -lAhFGHtr ${colorflag}"
+alias ll="ls -lAhFGH ${colorflag}"
 alias la="ls -A ${colorflag}"
 # List all files colorized in long format, excluding . and ..
 alias lal="ls -lAF ${colorflag}"
-alias lu="ls -lur ${colorflag}" # list by last access (with most recent at bottom
-alias lt="ls -ltr ${colorflag}" # sort by modification time, reverse
+alias lu="ls -lAur ${colorflag}" # list by last access (with most recent at bottom
+alias lt="ls -lAtr ${colorflag}" # sort by modification time, reverse
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+alias ..='cd ..'
+alias ls='ls -Ghp'
+alias ll='ls -Gphaltr'
 
 
 # Always enable colored `grep` output
@@ -123,10 +126,29 @@ fi
 # Reload this thing
 alias sourcez='source ~/.zshrc'
 
+# Open the zshrc to edit, then source it once closed
+alias zshrc="vim ~/.zshrc;source ~/.zshrc"
+
 # MAC - list all defaults (settings) domains
 alias domains="defaults domains | tr ',' '\n'"
 
 # Show battery status
 alias batt="pmset -g batt | sed -n '2 p' | sed 's/;//g' | awk '{ print $3 $5 }'"
 
-alias school='cd ~/icloud/School/2022Spring'
+# BELLS!
+# Useful if you want to be notified when a command completes.
+# Example: brazil-build && bells
+# This will ring 1 bell once the build succeeds, or 3 bells if the build fails
+alias bell='echo -en "\a"'                             # System bell
+alias bells='(bell; sleep 0.2; bell; sleep 0.2; bell)' # 3 system bells
+alias hellsbells="bell || bells"                       # One bell if successful, 3 bells if exit code is error
+
+# Start a webserver serving the current directory.
+# Useful for transferring files from desktop to the laptop
+# Server runs until interrupt (ctrl+c)
+alias hostdir="echo 'Hosting current directory on port 5432...'; echo 'http://${HOST}:5432'; python -m SimpleHTTPServer 5432 > /dev/null 2>&1; cd -"
+
+# Misc
+alias utc='TZ=UTC date'
+
+[ -f ~/dotfiles/.aliases-work ] && source ~/dotfiles/.aliases-work;

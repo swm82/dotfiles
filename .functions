@@ -32,6 +32,11 @@ cd () {
         fi
 }
 
+# Create a new file and make it executable with given name
+touchx () {
+    touch $1
+    chmod +x $1
+}
 
 # Create and go to the directory
 mcd ()
@@ -43,6 +48,13 @@ mcd ()
 # Change directory to arg of last command (prob ls)
 cdla () {
     cd "$_"
+}
+
+# Move up specified number of levels in dir tree
+u () {
+    set -A ud
+    ud[1+${1-1}]=
+    cd ${(j:../:)ud}; pwd
 }
 
 catla () {
@@ -113,3 +125,5 @@ zshaddhistory() {
     ]]
 }
 zshaddhistory
+
+[ -f ~/dotfiles/.functions-work ] && source ~/dotfiles/.functions-work;
